@@ -65,3 +65,70 @@ const authSlice = createSlice({
 
 export const { logout, setCredentials } = authSlice.actions;
 export default authSlice.reducer;
+
+
+
+// import { createSlice } from '@reduxjs/toolkit';
+// import { userLogin, userRegister } from './authActions';
+// import { REHYDRATE } from 'redux-persist';
+
+// const initialState = {
+//   loading: false,
+//   token: null,
+//   isLogged: false,
+//   role: null,
+//   error: null,
+//   success: false,
+// };
+
+// const authSlice = createSlice({
+//   name: 'auth',
+//   initialState,
+//   reducers: {
+//     logout: (state) => {
+//       Object.assign(state, initialState);
+//     },
+//     setCredentials: (state, { payload }) => {
+//       state.token = payload.token;
+//       state.role = payload.role;
+//       state.isLogged = true;
+//       state.success = true;
+//     },
+//   },
+//   extraReducers: (builder) => {
+//     builder
+//       .addCase(REHYDRATE, (state, action) => {
+//         if (action.payload?.auth) {
+//           return {
+//             ...state,
+//             ...action.payload.auth,
+//             loading: false,
+//             error: null
+//           };
+//         }
+//       })
+//       .addCase(userLogin.pending, (state) => {
+//         state.loading = true;
+//         state.error = null;
+//       })
+//       .addCase(userLogin.fulfilled, (state, { payload }) => {
+//         state.loading = false;
+//         state.token = payload.token;
+//         state.role = payload.role;
+//         state.isLogged = true;
+//         state.success = true;
+//         state.error = null;
+//       })
+//       .addCase(userLogin.rejected, (state, { payload }) => {
+//         state.loading = false;
+//         state.error = payload;
+//         state.success = false;
+//         state.isLogged = false;
+//         state.token = null;
+//         state.role = null;
+//       });
+//   },
+// });
+
+// export const { logout, setCredentials } = authSlice.actions;
+// export default authSlice.reducer;
